@@ -48,3 +48,10 @@ ruby quotation.rb
 ruby order.rb
 ```
 
+## Go
+
+``` bash
+cd go
+go run quotation.go
+go run order.go
+```
