@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-api-example",
+  "version": "1.0.0",
+  "description": "Simple example how to use Lalamove API with NodeJS",
+  "main": "quotation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "crypto-js": "^4.0.0"
+  }
+}

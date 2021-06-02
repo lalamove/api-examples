@@ -1,0 +1,7 @@
+{
+    "name": "lalamove/php-api-example",
+    "description": "Simple example how to use Lalamove API with PHP",
+    "type": "project",
+    "license": "MIT",
+    "require": {}
+}
