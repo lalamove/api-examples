@@ -38,7 +38,7 @@ func main() {
 				"addresses": {
 					"en_SG": {
 						"displayString": "Lorong 23 Geylang, Singapore Badminton Hall, Singapore",
-						"country": "SG_SIN"
+						"market": "SG_SIN"
 					}
 				}
 			},
@@ -50,7 +50,7 @@ func main() {
 				"addresses": {
 					"en_SG": {
 						"displayString": "Stamford Road, National Museum of Singapore, Singapore",
-						"country": "SG_SIN"
+						"market": "SG_SIN"
 					}
 				}
 			}
@@ -93,7 +93,7 @@ func main() {
 	token := "hmac " + key + ":" + currentTimeStamp + ":" + hex.EncodeToString(h.Sum(nil))
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", token)
-	req.Header.Add("X-LLM-Country", region)
+	req.Header.Add("X-LLM-Market", region)
 	client := &http.Client{}
 	res, err := client.Do(req)
 	if err != nil {

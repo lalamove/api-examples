@@ -28,7 +28,7 @@ body = {
             "addresses": {
                 "en_SG": {
                     "displayString": "Lorong 23 Geylang, Singapore Badminton Hall, Singapore",
-                    "country": region
+                    "market": region
                 }
             }
         },
@@ -40,7 +40,7 @@ body = {
             "addresses": {
                 "en_SG": {
                     "displayString": "Stamford Road, National Museum of Singapore, Singapore",
-                    "country": region
+                    "market": region
                 }
             }
         }
@@ -68,7 +68,7 @@ req = Net::HTTP::Post.new(uri.path, initheader = {
         'Content-Type' => 'application/json; charset=utf-8',
         'Authorization' => "hmac #{key}:#{timestamp}:#{signature}",
         'Accept' => 'application/json',
-        'X-LLM-Country' => region
+        'X-LLM-Market' => region
     }
 )
 req.body = body
