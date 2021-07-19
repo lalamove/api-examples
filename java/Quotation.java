@@ -31,7 +31,7 @@ public class Quotation {
         "            \"addresses\": {" +
         "                \"en_SG\": {" +
         "                    \"displayString\": \"Lorong 23 Geylang, Singapore Badminton Hall, Singapore\"," +
-        "                    \"country\": \"SG_SIN\"" +
+        "                    \"market\": \"SG_SIN\"" +
         "                }" +
         "            }" +
         "        }," +
@@ -43,7 +43,7 @@ public class Quotation {
         "            \"addresses\": {" +
         "                \"en_SG\": {" +
         "                    \"displayString\": \"Stamford Road, National Museum of Singapore, Singapore\"," +
-        "                    \"country\": \"SG_SIN\"" +
+        "                    \"market\": \"SG_SIN\"" +
         "                }" +
         "           }" +
         "        }" +
@@ -81,7 +81,7 @@ public class Quotation {
             .header("Content-Type", "application/json; charset=utf-8")
             .header("Accept", "application/json")
             .header("Authorization", "hmac " + token) // A unique Signature Hash has to be generated for EVERY API call at the time of making such call.
-            .header("X-LLM-Country", "SG_SIN") // Please note to which city are you trying to make API call
+            .header("X-LLM-Market", "SG_SIN") // Please note to which city are you trying to make API call
             .build();
 
         HttpResponse<String> response = null;

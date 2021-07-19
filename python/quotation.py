@@ -4,14 +4,14 @@ import hmac
 import hashlib
 import json
 
-key = '' # put your lalamove API key here
-secret = '' # put your lalamove API key here
+key = ''  # put your lalamove API key here
+secret = ''  # put your lalamove API key here
 
 path = '/v2/quotations'
-region = 'SG_SIN';
-method = 'POST';
+region = 'SG_SIN'
+method = 'POST'
 timestamp = int(round(time.time() * 1000))
-# timestamp = 1622534852325
+
 body = {
     "serviceType": "MOTORCYCLE",
     "specialRequests": [],
@@ -28,7 +28,7 @@ body = {
             "addresses": {
                 "en_SG": {
                     "displayString": "Lorong 23 Geylang, Singapore Badminton Hall, Singapore",
-                    "country": region
+                    "market": region
                 }
             }
         },
@@ -40,12 +40,12 @@ body = {
             "addresses": {
                 "en_SG": {
                     "displayString": "Stamford Road, National Museum of Singapore, Singapore",
-                    "country": region
+                    "market": region
                 }
             }
         }
-   ],
-   "deliveries": [
+    ],
+    "deliveries": [
         {
             "toStop": 1,
             "toContact": {
@@ -56,21 +56,24 @@ body = {
         }
     ]
 }
-rawSignature = "{timestamp}\r\n{method}\r\n{path}\r\n\r\n{body}".format(timestamp=timestamp,method=method,path=path,body=json.dumps(body))
-signature = hmac.new(secret.encode(), rawSignature.encode(), hashlib.sha256).hexdigest()
+rawSignature = "{timestamp}\r\n{method}\r\n{path}\r\n\r\n{body}".format(
+    timestamp=timestamp, method=method, path=path, body=json.dumps(body))
+signature = hmac.new(secret.encode(), rawSignature.encode(),
+                     hashlib.sha256).hexdigest()
 startTime = int(round(time.time() * 1000))
 url = "https://rest.sandbox.lalamove.com"
 
 headers = {
     'Content-type': 'application/json; charset=utf-8',
-    'Authorization': "hmac {key}:{timestamp}:{signature}".format(key=key,timestamp=timestamp,signature=signature),
+    'Authorization': "hmac {key}:{timestamp}:{signature}".format(key=key, timestamp=timestamp, signature=signature),
     'Accept': 'application/json',
-    'X-LLM-Country': region
+    'X-LLM-Market': region
 }
 r = requests.post(url+path, data=json.dumps(body), headers=headers)
 
 requestTime = (int(round(time.time() * 1000)) - startTime)
 print("Total elapsed http request/response time in milliseconds: {}".format(requestTime))
-print("Authorization header: hmac {key}:{timestamp}:{signature}".format(key=key,timestamp=timestamp,signature=signature))
+print("Authorization header: hmac {key}:{timestamp}:{signature}".format(
+    key=key, timestamp=timestamp, signature=signature))
 print("Status Code: {}".format(r.status_code))
 print("Returned data: {}".format(r.text))

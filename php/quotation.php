@@ -27,7 +27,7 @@ $body = '{
             "addresses": {
                 "en_SG": {
                     "displayString": "Lorong 23 Geylang, Singapore Badminton Hall, Singapore",
-                    "country": "'.$region.'"
+                    "market": "'.$region.'"
                 }
             }
         },
@@ -39,7 +39,7 @@ $body = '{
            "addresses": {
                "en_SG": {
                    "displayString": "Stamford Road, National Museum of Singapore, Singapore",
-                   "country": "'.$region.'"
+                   "market": "'.$region.'"
                }
            }
         }
@@ -77,7 +77,7 @@ curl_setopt_array($curl, array(
         "Content-type: application/json; charset=utf-8",
         "Authorization: hmac ".$token, // A unique Signature Hash has to be generated for EVERY API call at the time of making such call.
         "Accept: application/json",
-        "X-LLM-Country: {$region}" // Please note to which city are you trying to make API call
+        "X-LLM-Market: {$region}" // Please note to which city are you trying to make API call
     ),
 ));
 
