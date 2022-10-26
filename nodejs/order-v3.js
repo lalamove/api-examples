@@ -5,7 +5,7 @@ const CryptoJS = require("crypto-js");
 const API_KEY = ""; // put your lalamove API key here
 const SECRET = ""; // put your lalamove API secret here
 
-axios.defaults.baseURL = "https://rest.sandbox.lalamove.com"; // URl to Lalamove Sandbox API
+axios.defaults.baseURL = "https://rest.sandbox.lalamove.com"; // URL to Lalamove Sandbox API
 const time = new Date().getTime().toString();
 const region = "SG_SIN";
 const method = "POST";
@@ -13,14 +13,15 @@ const path = "/v3/orders";
 
 const body = JSON.stringify({
   data: {
-    quotationId: "1584431938633158698", //Quotation ID from quotation response
+    quotationId: "1584431938633158698", // Quotation ID from quotation response
     sender: {
-      stopId: "1584431939304247307", //Stop Id of the pickup point from quotation response
+      stopId: "1584431939304247307", // Stop Id of the pickup point from quotation response
       name: "test",
       phone: "+651001234567",
-    },recipients: [
+    },
+    recipients: [
       {
-        stopId: "1584431939304247308", //Stop Id of dropoff point from quotation response
+        stopId: "1584431939304247308", // Stop Id of dropoff point from quotation response
         name: "dodo",
         phone: "+651001234567",
         remarks: "Do not take this order - SANDBOX CLIENT TEST"
@@ -37,8 +38,8 @@ axios
   .post(path, body, {
     headers: {
       "Content-type": "application/json; charset=utf-8",
-      Authorization: `hmac ${API_KEY}:${time}:${SIGNATURE}`,
-      Accept: "application/json",
+      "Authorization": `hmac ${API_KEY}:${time}:${SIGNATURE}`,
+      "Accept": "application/json",
       "Market": region,
     },
   })

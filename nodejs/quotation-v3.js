@@ -5,7 +5,7 @@ const CryptoJS = require("crypto-js");
 const API_KEY = ""; // put your lalamove API key here
 const SECRET = ""; // put your lalamove API secret here
 
-axios.defaults.baseURL = "https://rest.sandbox.lalamove.com"; // URl to Lalamove Sandbox API
+axios.defaults.baseURL = "https://rest.sandbox.lalamove.com"; // URL to Lalamove Sandbox API
 const time = new Date().getTime().toString();
 const region = "SG_SIN";
 const method = "POST";
@@ -43,9 +43,9 @@ axios
   .post(path, body, {
     headers: {
       "Content-type": "application/json; charset=utf-8",
-      Authorization: `hmac ${API_KEY}:${time}:${SIGNATURE}`,
-      Accept: "application/json",
-      "MARKET": region,
+      "Authorization": `hmac ${API_KEY}:${time}:${SIGNATURE}`,
+      "Accept": "application/json",
+      "Market": region,
     },
   })
   .then((result) => {
