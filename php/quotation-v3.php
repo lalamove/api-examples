@@ -1,11 +1,11 @@
 <?php
 // Put your key and secret here
-$key = ""; // put your lalamove API key here
-$secret = ""; // put your lalamove API secret here
+$key = ''; // put your lalamove API key here
+$secret = ''; // put your lalamove API secret here
 
 $time = time() * 1000;
 
-$baseURL = "https://rest.sandbox.lalamove.com"; // URl to Lalamove Sandbox API
+$baseURL = "https://rest.sandbox.lalamove.com"; // URL to Lalamove Sandbox API
 $method = 'POST';
 $path = '/v3/quotations';
 $region = 'SG_SIN';
@@ -63,7 +63,7 @@ $response = curl_exec($curl);
 $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 curl_close($curl);
 
-echo "Total elapsed http request/response time in milliseconds: ".floor((microtime(true) - $startTime)*1000)."\r\n";
-echo "Authorization: hmac ".$token."\r\n";
+echo 'Total elapsed http request/response time in milliseconds: '.floor((microtime(true) - $startTime)*1000)."\r\n";
+echo 'Authorization: hmac '.$token."\r\n";
 echo 'Status Code: '. $httpCode."\r\n";
 echo 'Returned data: '.$response."\r\n";
