@@ -4,7 +4,7 @@ $key = ''; // put your lalamove API key here
 $secret = ''; // put your lalamove API secret here
 
 $time = time() * 1000;
-$baseURL = "https://rest.sandbox.lalamove.com"; // URL to Lalamove Sandbox API
+$baseURL = 'https://rest.sandbox.lalamove.com'; // URL to Lalamove Sandbox API
 $method = 'POST';
 $path = '/v3/orders';
 $region = 'SG_SIN';
