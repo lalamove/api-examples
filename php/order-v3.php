@@ -47,7 +47,7 @@ curl_setopt_array($curl, array(
         "Content-type: application/json; charset=utf-8",
         "Authorization: hmac ".$token, // A unique Signature Hash has to be generated for EVERY API call at the time of making such call.
         "Accept: application/json",
-        "Market: {$region}" // Please note to which city are you trying to make API call
+        "Market: ".$region // Please note to which city are you trying to make API call
     ),
 ));
 
@@ -57,5 +57,5 @@ curl_close($curl);
 
 echo 'Total elapsed http request/response time in milliseconds: '.floor((microtime(true) - $startTime)*1000)."\r\n";
 echo 'Authorization: hmac '.$token."\r\n";
-echo 'Status Code: '. $http_code."\r\n";
+echo 'Status Code: '.$http_code."\r\n";
 echo 'Returned data: '.$response."\r\n";
