@@ -9,9 +9,19 @@ Full Lalamove API documentation can be found at [https://developers.lalamove.com
 ## Java
 
 ``` bash
-cd java
-java Quotation.java
-java Order.java
+cd v2/java
+javac Quotation.java
+java Quotation
+
+javac Order.java
+java Orider
+
+cd v3/java
+javac Quotation.java
+java Quotation
+
+javac Order.java
+java Orider
 ```
 
 ## NodeJS
